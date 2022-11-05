@@ -1,0 +1,18 @@
+.button {
+  height: 56px;
+  border-radius: 8px;
+  border: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 14px;
+}
+.primary {
+  background-color: #fdc886;
+}
+.primary:hover {
+  background-color: #ec9326;
+  transition: all 0.3s ease;
+}
+.disabled {
+  opacity: 0.8;
+}
