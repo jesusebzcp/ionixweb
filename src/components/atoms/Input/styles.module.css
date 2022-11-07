@@ -7,7 +7,7 @@
   outline: none;
 }
 .input::placeholder {
-  color: black;
+  color: rgb(141, 141, 141);
 }
 .containerInput {
   display: flex;

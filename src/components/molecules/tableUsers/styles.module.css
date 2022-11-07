@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(241, 241, 241);
+  padding: 0.6rem 2rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+.header th {
+  flex: 1;
+}
+.header th {
+  flex: 1;
+}
+.header th:first-child {
+  text-align: left;
+}
+.header th:last-child {
+  text-align: right;
+}
+.containerTablet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerTablet td {
+  flex: 1;
+  margin: 1rem 1rem;
+  text-align: center;
+}
+.containerTablet td:last-child {
+  text-align: right;
+}
+.containerTablet td:first-child {
+  text-align: left;
+}
+.containerPagination {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar img {
+  border-radius: 25px;
+  margin-right: 1rem;
+}
+.buttons button:first-child {
+  margin-right: 1rem;
+}

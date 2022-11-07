@@ -1,6 +1,7 @@
 import React from "react";
-import { Formik, Form as FormContainer } from "formik";
-import { OptionalObjectSchema } from "yup/lib/object";
+import { Formik, Form as FormContainer, FormikErrors } from "formik";
+import type { OptionalObjectSchema } from "yup/lib/object";
+
 import { Input } from "@/components/atoms/Input";
 import { Button } from "@/components/atoms/button";
 
@@ -12,7 +13,7 @@ export interface Filed {
 
 interface FormProps {
   styles?: any;
-  initialValues: {};
+  initialValues: any;
   validationSchema: OptionalObjectSchema<any>;
   fields: Filed[];
   stylesInput?: any;
@@ -56,7 +57,7 @@ export const Form = ({
               onBlur={() => setFieldTouched(props.name)}
               onChange={handleChange(props.name)}
               value={values[props.name]}
-              error={errors && errors[props.name]}
+              error={errors && (errors[props.name] as FormikErrors<string>)}
             />
           ))}
           <Button type={"submit"} text={textButton} disabled={!isValid} />

@@ -1,0 +1,1 @@
+export { HeaderFilterTablet } from "./headerFilterTablet";

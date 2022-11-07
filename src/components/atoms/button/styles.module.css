@@ -16,3 +16,26 @@
 .disabled {
   opacity: 0.8;
 }
+.containerFloat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.containerFloat button {
+  background-color: black;
+  border: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+  -moz-box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+  box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+  cursor: pointer;
+}
+.delete {
+  background-color: #de3226;
+}
+.delete:hover {
+  background-color: #de3226b8;
+  transition: all 0.3s ease;
+}

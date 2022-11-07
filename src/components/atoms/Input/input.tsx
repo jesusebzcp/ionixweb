@@ -1,11 +1,12 @@
 import classNames from "classnames";
+import type { FormikErrors } from "formik";
 import styles from "./styles.module.css";
 export interface InputProps {
   name: string;
   label: string;
   type?: "text" | "password";
   customStyles?: any;
-  error?: string;
+  error?: FormikErrors<string>;
   onBlur?: () => void;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

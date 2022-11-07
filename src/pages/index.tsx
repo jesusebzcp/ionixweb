@@ -1,7 +1,10 @@
+import { LayoutShared } from "@/components/Layout";
+import { UserOrganisms } from "@/components/organisms/userOrganisms";
+
 export default function Home() {
   return (
-    <div>
-      <h2>Hello</h2>
-    </div>
+    <LayoutShared>
+      <UserOrganisms />
+    </LayoutShared>
   );
 }

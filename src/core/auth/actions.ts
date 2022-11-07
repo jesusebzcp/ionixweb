@@ -22,7 +22,6 @@ export const loginDispatch = async (creds: Credentials, dispatch: any) => {
     const { data } = await clientAxios.post("auth/login", {
       ...creds,
     });
-    console.log("response", data);
     if (data.status === 404) {
       return toast.error("El usuario no existe");
     }
@@ -56,4 +55,12 @@ export const getProfileDispatch = async (dispatch: any) => {
   } finally {
     setLoading(false, dispatch);
   }
+};
+
+export const singOutDispatch = (dispatch: any) => {
+  localStorage.removeItem("access_token");
+  dispatch({
+    type: SET_USER,
+    payload: null,
+  });
 };

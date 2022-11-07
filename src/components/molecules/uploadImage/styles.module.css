@@ -1,0 +1,21 @@
+.container {
+  height: 120px;
+  background-color: rgb(222, 222, 222);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container span {
+  color: rgb(86, 86, 86);
+}
+
+.container:hover {
+  -webkit-box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+  -moz-box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+  box-shadow: 0px 2px 5px -3px rgba(148, 148, 148, 1);
+}

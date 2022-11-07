@@ -4,6 +4,7 @@ export interface UserAuth {
   lastname: string;
   email: string;
   username: string;
+  imageUrl: string;
 }
 
 export interface HandleError {

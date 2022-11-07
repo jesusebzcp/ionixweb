@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.welcome {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+.avatar {
+  border-radius: 23px;
+  margin-right: 1rem;
+}
+.col {
+  display: flex;
+  align-items: center;
+}
