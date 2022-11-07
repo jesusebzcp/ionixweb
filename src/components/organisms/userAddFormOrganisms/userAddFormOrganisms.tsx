@@ -25,17 +25,19 @@ export const UserAddFormOrganisms = ({
 
   const [image, setImage] = useState<File | null | string>(null);
 
-  console.log("image", image);
   const validationSchema = Yup.object({
     email: Yup.string()
       .required("Este campo es requerido")
       .email("El email debe ser valido"),
-    password: Yup.string()
-      .required("Este campo es requerido")
-      .min(6, "Debe contener al menos 6 caracteres"),
+
     firstname: Yup.string().required("Este campo es requerido"),
     lastname: Yup.string().required("Este campo es requerido"),
     username: Yup.string().required("Este campo es requerido"),
+    ...(!selectUser && {
+      password: Yup.string()
+        .required("Este campo es requerido")
+        .min(6, "Debe contener al menos 6 caracteres"),
+    }),
   });
 
   const initialValues = useMemo(
@@ -89,7 +91,7 @@ export const UserAddFormOrganisms = ({
         return toast.error("La imagen es obligatoria.");
       }
       if (selectUser) {
-        updateUser(values as any, image, usersDispatch);
+        await updateUser(values as any, image, usersDispatch);
       } else {
         await createNewUser(values as any, image, usersDispatch);
       }
@@ -105,7 +107,7 @@ export const UserAddFormOrganisms = ({
   }, [selectUser]);
 
   if (loading) {
-    return <LoadingOrganisms label={"Creando usuario"} />;
+    return <LoadingOrganisms />;
   }
 
   return (

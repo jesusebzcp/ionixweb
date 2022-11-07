@@ -26,9 +26,11 @@ export const ModalConfirmation = ({
   return (
     <div className={styles.background} onClick={close}>
       <div className={styles.modal}>
-        <h6>{title}</h6>
+        <div className={styles.header}>
+          <h6 className={styles.title}>{title}</h6>
+        </div>
         <p>{description}</p>
-        <div>
+        <div className={styles.footer}>
           <button onClick={okAction}>{textOk}</button>
           <button onClick={cancelAction}>{textCancel}</button>
         </div>

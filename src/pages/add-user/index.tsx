@@ -3,7 +3,7 @@ import { UserAddFormOrganisms } from "@/components/organisms/userAddFormOrganism
 
 const addUser = () => {
   return (
-    <LayoutShared>
+    <LayoutShared back>
       <UserAddFormOrganisms />
     </LayoutShared>
   );

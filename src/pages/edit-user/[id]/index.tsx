@@ -10,7 +10,7 @@ const EditUser = () => {
   const { selectUser } = usersState;
 
   return (
-    <LayoutShared>
+    <LayoutShared back>
       <UserAddFormOrganisms selectUser={selectUser} />
     </LayoutShared>
   );

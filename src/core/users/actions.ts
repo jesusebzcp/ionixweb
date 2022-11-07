@@ -14,6 +14,7 @@ import {
 
 export const handleError = (payload: any, dispatch: any): void => {
   console.error("error", payload);
+  toast.error("Ocurrió un error al intentar actualizar la acción");
   setLoading(false, dispatch);
   dispatch({ type: ERROR, payload });
 
@@ -144,7 +145,6 @@ export const updateUser = async (
       const filename = await uploadImage(file, dispatch);
       imageUrl = await getImageUrl(filename, dispatch);
     }
-
     const { data } = await clientAxios.put(
       `users/${values.id}`,
       { ...values, imageUrl },
@@ -154,12 +154,11 @@ export const updateUser = async (
         },
       }
     );
-
     dispatch({
       type: UPDATE_USER,
       payload: data,
     });
-    toast.success("Se ha creado satisfactoriamente el usuario");
+    toast.success("Se ha actualizado satisfactoriamente el usuario");
   } catch (error) {
     handleError(error, dispatch);
   } finally {

@@ -4,6 +4,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.tbody {
+  max-height: 57vh;
+  overflow: auto;
+}
 .header {
   flex: 1;
   display: flex;
@@ -34,6 +38,8 @@
   flex: 1;
   margin: 1rem 1rem;
   text-align: center;
+  display: flex;
+  align-items: center;
 }
 .containerTablet td:last-child {
   text-align: right;
@@ -57,4 +63,17 @@
 }
 .buttons button:first-child {
   margin-right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .containerTablet {
+    overflow: auto;
+    align-items: center;
+  }
+  .header {
+    overflow: auto;
+  }
+  .header th {
+    margin: 0 1rem;
+  }
 }

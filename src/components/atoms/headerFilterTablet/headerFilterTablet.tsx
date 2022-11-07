@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
+import { Formik, Form as FormContainer } from "formik";
+
+import styles from "./styles.module.css";
+
 import { Button } from "../button";
 import { Input } from "../Input";
-import styles from "./styles.module.css";
-import { Formik, Form as FormContainer } from "formik";
-import { useRouter } from "next/router";
 
 export type OrderType = "asc" | "desc";
 
@@ -37,13 +39,14 @@ export const HeaderFilterTablet = ({
             error={errors.search}
           />
           <div className={styles.containerButton}>
-            <Button
-              onClick={() => updateOrder("asc")}
-              color={"secondary"}
-              text="Buscar usuario"
-              type="submit"
-            />
+            <Button color={"secondary"} text="Buscar usuario" type="submit" />
           </div>
+          <button
+            onClick={() => updateOrder(order === "asc" ? "desc" : "asc")}
+            className={styles.order}
+          >
+            order:{order}
+          </button>
         </FormContainer>
       )}
     </Formik>

@@ -6,18 +6,36 @@ import { StoreContextUI } from "@/core/dto";
 import { context } from "@/core/StoreContext";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { SvgBack } from "@/svg/svgBack";
+import { useRouter } from "next/router";
 
-export const Header = () => {
+interface HeaderProps {
+  back?: boolean;
+}
+
+export const Header = ({ back }: HeaderProps) => {
   const { state, authDispatch }: StoreContextUI = useContext(context);
   const { authState } = state;
   const { user } = authState;
+
+  const router = useRouter();
+
   return (
     <nav className={styles.header}>
-      <h2>{"Ionix usuarios"}</h2>
+      <div className={styles.col}>
+        {back && (
+          <button className={styles.back} onClick={() => router.back()}>
+            <SvgBack /> volver
+          </button>
+        )}
+
+        <h2>{"Ionix usuarios"}</h2>
+      </div>
+
       <div className={styles.col}>
         {user && (
           <Image
-            src={user.imageUrl}
+            src={!!user.imageUrl.trim() ? user.imageUrl : "/images/avatar.png"}
             alt={user.firstname}
             width={35}
             height={35}

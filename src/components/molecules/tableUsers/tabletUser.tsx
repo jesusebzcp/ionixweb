@@ -21,7 +21,9 @@ export const TableUser = ({
   PaginationRender,
   HeaderRender,
 }: TableUserProps) => {
-  const { usersDispatch }: StoreContextUI = useContext(context);
+  const { state, usersDispatch }: StoreContextUI = useContext(context);
+  const { authState } = state;
+  const { user: userAuth } = authState;
   const router = useRouter();
 
   const [openModal, setOpenModal] = useState(false);
@@ -60,7 +62,7 @@ export const TableUser = ({
         ))}
       </thead>
 
-      <tbody>
+      <tbody className={styles.tbody}>
         {data &&
           data.length > 0 &&
           data.map((user) => {
@@ -91,11 +93,13 @@ export const TableUser = ({
                     color="secondary"
                     text="Editar"
                   />
-                  <Button
-                    onClick={() => onDelete(user.id)}
-                    color="delete"
-                    text="Eliminar"
-                  />
+                  {user.id !== userAuth?.id && (
+                    <Button
+                      onClick={() => onDelete(user.id)}
+                      color="delete"
+                      text="Eliminar"
+                    />
+                  )}
                 </td>
               </tr>
             );
@@ -109,8 +113,8 @@ export const TableUser = ({
 
       <ModalConfirmation
         open={openModal}
-        close={() => setOpenModal((prev) => !prev)}
-        cancelAction={() => setOpenModal((prev) => !prev)}
+        close={() => setOpenModal(false)}
+        cancelAction={() => setOpenModal(false)}
         title={"Confirmación"}
         description={"Realmente deseas eliminar este usuario?"}
         textOk={"Eliminar"}

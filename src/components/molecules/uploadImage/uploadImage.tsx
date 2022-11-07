@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import styles from "./styles.module.css";
 
 interface UploadImageProps {
@@ -9,7 +9,7 @@ interface UploadImageProps {
 export const UploadImage = ({ url, onChange }: UploadImageProps) => {
   const refInput = useRef<HTMLInputElement>();
 
-  const [imageSrc, setImageSrc] = useState("");
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
 
   const handleOpenImage = () => {
     refInput.current?.click();
@@ -27,16 +27,13 @@ export const UploadImage = ({ url, onChange }: UploadImageProps) => {
     }
   };
 
-  const imageUrl = useMemo(
-    () =>
-      url && typeof url !== "string"
-        ? URL.createObjectURL(url)
-        : url || !!imageSrc.trim()
-        ? imageSrc
-        : "",
-    [imageSrc, url]
-  );
-  console.log("url===>", url);
+  const imageUrl = useMemo(() => {
+    if (typeof url !== "string") {
+      return imageSrc;
+    } else {
+      return url;
+    }
+  }, [imageSrc, url]);
 
   return (
     <div
